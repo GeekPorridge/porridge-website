@@ -1,32 +1,5 @@
-import type { Metadata } from "next";
-import { EB_Garamond, Hanken_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
+import { ebGaramond, hankenGrotesk, plusJakartaSans } from "./fonts";
 import "./globals.css";
-
-const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
-
-const hankenGrotesk = Hanken_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-accent",
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
-
-export const metadata: Metadata = {
-  title: "Porridge Studio",
-  description: "High-end personal brand & creative studio",
-};
 
 export default function RootLayout({
   children,
@@ -38,8 +11,10 @@ export default function RootLayout({
       lang="en"
       className={`${ebGaramond.variable} ${hankenGrotesk.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-surface-paper text-on-surface font-sans">
-        {children}
+      <body>
+        <div className="min-h-screen flex flex-col bg-brand-beige text-brand-dark selection:bg-brand-accent selection:text-brand-dark overflow-x-hidden noise-bg">
+          {children}
+        </div>
       </body>
     </html>
   );
