@@ -7,7 +7,6 @@ const Nav = () => {
   const t = useTranslations();
 
   const navItems = [
-    { id: "work", label: t("work") },
     { id: "about", label: t("about") },
     { id: "contact", label: t("contact") },
   ] as const;

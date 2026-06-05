@@ -6,10 +6,10 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
+import { Fragment } from "react/jsx-runtime";
 import { routing } from "@/i18n/routing";
 import Footer from "../components/footer";
 import Header from "../components/header";
-import { Fragment } from "react/jsx-runtime";
 
 type Props = {
   children: React.ReactNode;
