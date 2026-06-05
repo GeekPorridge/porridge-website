@@ -1,7 +1,7 @@
 "use server";
 
 import { Camera, Check, Copy, Globe, LinkIcon } from "lucide-react";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import AnimatePresenceLayout from "@/app/components/animate-presence-layout";
 import ContactForm from "./contact-form";
 
@@ -12,147 +12,167 @@ type Props = {
 const Contact = async ({ params }: Props) => {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale });
 
-  const copiedEmail = false;
-  const franceTime = "";
+  const headingSegments = t.raw("contactPage.heading.segments") as Array<{
+    text: string;
+    className?: string;
+  }>;
+
+  const formData = {
+    heading: t("contactPage.form.heading"),
+    description: t("contactPage.form.description"),
+    interestLabel: t("contactPage.form.interestLabel"),
+    interests: t.raw("contactPage.form.interests") as Array<{
+      id: string;
+      label: string;
+    }>,
+    name: {
+      label: t("contactPage.form.name.label"),
+      placeholder: t("contactPage.form.name.placeholder"),
+    },
+    email: {
+      label: t("contactPage.form.email.label"),
+      placeholder: t("contactPage.form.email.placeholder"),
+    },
+    message: {
+      label: t("contactPage.form.message.label"),
+      placeholder: t("contactPage.form.message.placeholder"),
+    },
+    submit: t("contactPage.form.submit"),
+    submitting: t("contactPage.form.submitting"),
+    success: {
+      title: t("contactPage.form.success.title"),
+      description: t("contactPage.form.success.description"),
+      button: t("contactPage.form.success.button"),
+    },
+  };
 
   return (
     <AnimatePresenceLayout>
       <section className="space-y-4 mb-16">
         <span className="font-mono text-xs tracking-widest uppercase text-brand-accent block">
-          Get In Touch
+          {t("contactPage.label")}
         </span>
         <h1 className="font-serif text-4xl sm:text-6xl font-light tracking-tight text-brand-dark max-w-3xl leading-[1.1]">
-          Let’s craft your{" "}
-          <span className="font-serif italic text-brand-accent">
-            next vision
-          </span>{" "}
-          together.
+          {headingSegments.map((seg, i) => (
+            <span key={i} className={seg.className}>
+              {seg.text}{" "}
+            </span>
+          ))}
         </h1>
       </section>
 
       {/* ASYMMETRIC DUAL LAYOUT */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        {/* Left side: Coordinates, Active tracking, and Architectural sunset view */}
+        {/* Left side: Contact info */}
         <div className="lg:col-span-5 space-y-8 lg:space-y-10">
-          {/* Communication links list */}
           <div className="space-y-6">
-            {/* Interactive email box */}
+            {/* Email */}
             <div>
               <span className="font-mono text-[9px] uppercase tracking-widest text-brand-dark/45 block mb-1">
-                Secure Email Channel
+                {t("contactPage.email.label")}
               </span>
               <div className="flex items-center space-x-2.5 group">
-                <button
-                  type="button"
-                  //   onClick={handleCopyEmail}
+                <a
+                  href={`mailto:${t("contactPage.email.value")}`}
                   className="font-serif text-lg sm:text-xl font-medium text-brand-dark hover:text-brand-accent transition-colors cursor-pointer text-left focus:outline-none"
                 >
-                  hello@alexandre.design
-                </button>
-
+                  {t("contactPage.email.value")}
+                </a>
                 <button
                   type="button"
                   id="btn-copy-email"
-                  className="p-1 px-2.5 rounded bg-brand-bone/50 hover:bg-brand-dark hover:text-brand-beige text-[9px] font-mono transition-colors flex items-center space-x-1"
+                  className="p-1 px-2.5 rounded bg-brand-bone/50 hover:bg-brand-dark hover:text-brand-beige text-[9px] font-mono transition-colors flex items-center space-x-1 cursor-pointer"
                 >
-                  {copiedEmail ? (
-                    <Check className="h-3 w-3 text-emerald-600" />
-                  ) : (
-                    <Copy className="h-3 w-3" />
-                  )}
-                  <span>{copiedEmail ? "COPIED" : "COPY"}</span>
+                  <Copy className="h-3 w-3" />
+                  <span>COPY</span>
                 </button>
               </div>
             </div>
 
-            {/* Live Paris locator */}
+            {/* Location */}
             <div>
               <span className="font-mono text-[9px] uppercase tracking-widest text-brand-dark/45 block mb-1">
-                Physical Office Coordinates
+                {t("contactPage.location.label")}
               </span>
               <div className="space-y-1">
                 <span className="font-sans text-sm font-semibold text-brand-dark block">
-                  Paris, France — Available Worldwide
+                  {t("contactPage.location.value")}
                 </span>
-
-                {/* Interactive ticking local Paris clock widget */}
                 <div
                   id="live-timezone-ticker"
                   className="inline-flex items-center space-x-2.5 bg-brand-bone/35 border border-brand-bone px-3 py-1.5 rounded-full"
                 >
-                  <Globe className="h-3.5 w-3.5 text-brand-accent animate-spin-slow" />
+                  <Globe className="h-3.5 w-3.5 text-brand-accent" />
                   <span className="font-mono text-[10px] tracking-wider text-brand-dark/75">
-                    Paris Time: {franceTime || "Loading..."}
+                    {t("contactPage.timezone")} CST (UTC+8)
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Social coordinates */}
+            {/* Social links */}
             <div>
               <span className="font-mono text-[9px] uppercase tracking-widest text-brand-dark/45 block mb-1.5">
-                Visual Networks
+                {t("contactPage.social.label")}
               </span>
               <div className="flex items-center space-x-4 font-mono text-[11px] tracking-widest uppercase">
                 <a
-                  href="https://instagram.com"
-                  id="social-instagram"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-brand-dark/70 hover:text-brand-accent transition-colors flex items-center space-x-1 border-b border-transparent hover:border-brand-accent pb-0.5"
-                >
-                  <Camera className="h-3 w-3" />
-                  <span>Instagram</span>
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  id="social-linkedin"
+                  href="https://github.com/GeekPorridge"
+                  id="social-github"
                   target="_blank"
                   rel="noreferrer"
                   className="text-brand-dark/70 hover:text-brand-accent transition-colors flex items-center space-x-1 border-b border-transparent hover:border-brand-accent pb-0.5"
                 >
                   <LinkIcon className="h-3 w-3" />
-                  <span>LinkedIn</span>
+                  <span>{t("contactPage.social.github")}</span>
+                </a>
+                <a
+                  href={`mailto:${t("contactPage.email.value")}`}
+                  id="social-email"
+                  className="text-brand-dark/70 hover:text-brand-accent transition-colors flex items-center space-x-1 border-b border-transparent hover:border-brand-accent pb-0.5"
+                >
+                  <Camera className="h-3 w-3" />
+                  <span>{t("contactPage.social.email")}</span>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Sunset Grayscale Office Bleed View */}
+          {/* Cityscape Image */}
           <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden shadow-sm border border-brand-bone/50">
             <img
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-              alt="Refined Atelier Workspace Sunset View"
+              alt="Shenzhen Skyline"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover filter grayscale contrast-125 transition-transform duration-1000 hover:scale-105"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-dark/70 p-4 text-left">
               <span className="font-mono text-[8px] uppercase tracking-wider text-brand-accent">
-                ATELIER DIRECT CAMERA
+                {t("contactPage.image.label")}
               </span>
               <p className="font-serif italic text-xs text-brand-beige/85">
-                "Sunset over the Parisian office grids."
+                {t("contactPage.image.quote")}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Right side: Contact Message input shell */}
+        {/* Right side: Contact Form */}
         <div
           className="lg:col-span-7 bg-brand-bone/15 border border-brand-bone/70 p-6 sm:p-10 rounded-3xl"
           id="contact-form-side"
         >
           <div className="mb-6">
             <h3 className="font-serif text-xl font-medium tracking-tight">
-              Send a secure proposal
+              {formData.heading}
             </h3>
             <p className="font-sans text-xs text-brand-dark/50 mt-1">
-              Alexandre handles all personal communication with strict
-              confidentiality protocols.
+              {formData.description}
             </p>
           </div>
-          <ContactForm />
+          <ContactForm formData={formData} />
         </div>
       </section>
     </AnimatePresenceLayout>

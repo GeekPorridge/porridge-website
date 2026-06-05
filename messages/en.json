@@ -1,15 +1,210 @@
 {
-  "heading": "Hello World",
-  "title": "Porridge Studio",
-  "description": "High-end personal brand & creative studio",
-  "work": "Work",
+  "title": "Zhou Yang | Full Stack Engineer",
+  "description": "Full stack engineer based in Shenzhen — 5 years of experience crafting clean, scalable web applications with React, Next.js, TypeScript & Node.js.",
   "about": "About",
   "contact": "Contact",
   "hireMe": "Hire Me",
   "toggleMenu": "Toggle menu",
-  "tagline": "High-end creative studio crafting digital experiences with intention.",
+  "tagline": "Clean code · Full stack · Component design",
   "navigation": "Navigation",
   "social": "Social",
-  "rights": "© {year} Porridge Studio. All rights reserved.",
-  "crafted": "Crafted with intention"
+  "rights": "© {year} Zhou Yang. All rights reserved.",
+  "crafted": "Built with precision",
+
+  "hero": {
+    "subtitle": "Full Stack Engineer · 5 Years Exp · Shenzhen",
+    "heading": {
+      "segments": [
+        { "text": "Building" },
+        { "text": "elegant", "className": "font-serif italic text-brand-accent" },
+        { "text": "full-stack solutions through clean code." }
+      ]
+    },
+    "description": "A full-stack engineer passionate about engineering excellence, component-driven architecture, and end-to-end delivery — from thoughtful database design to pixel-perfect, performant user interfaces.",
+    "cta": "Explore My Work",
+    "image": {
+      "label": "BASED IN SHENZHEN",
+      "quote": "\"Simplicity is the soul of efficiency.\""
+    }
+  },
+
+  "philosophy": {
+    "label": "My Philosophy",
+    "heading": {
+      "segments": [
+        { "text": "Guided by the belief that" },
+        { "text": "clean", "className": "italic" },
+        { "text": "code and" },
+        { "text": "solid", "className": "font-serif italic text-brand-accent" },
+        { "text": "architecture create lasting products." }
+      ]
+    },
+    "paragraph1": "Great software is not the product of excessive abstraction. Rather, it is the deliberate simplification of complexity until every module, every component, and every API endpoint serves a clear and single purpose. I believe in writing code that is readable, maintainable, and testable.",
+    "paragraph2": "My practice spans the full stack — from crafting responsive, animated frontend experiences with React and Next.js, to designing robust RESTful APIs with Node.js and Prisma. I thrive on taking features from concept to production, ensuring every layer of the stack is thoughtfully engineered.",
+    "cta": "Discover My Projects"
+  },
+
+  "highlights": {
+    "label": "Core Strengths",
+    "items": [
+      {
+        "id": "fullstack",
+        "quote": "Delivering complete features from database schema to polished UI — understanding how every layer connects leads to better architectural decisions and fewer integration surprises.",
+        "author": "End-to-End Delivery",
+        "role": "Full Stack Development"
+      },
+      {
+        "id": "engineering",
+        "quote": "Writing clean, maintainable code is not optional — it is the foundation of sustainable software. Component-driven architecture, thoughtful naming, and rigorous self-testing are daily habits, not afterthoughts.",
+        "author": "Clean Code & Engineering",
+        "role": "Code Quality Advocate"
+      },
+      {
+        "id": "communication",
+        "quote": "Fast to adapt, comfortable communicating across teams, and experienced in bridging the gap between technical implementation and business requirements — including 1 year of direct client-facing sales experience.",
+        "author": "Communication & Adaptability",
+        "role": "Client-Ready Engineer"
+      }
+    ]
+  },
+
+  "projects": {
+    "label": "Selected Works",
+    "heading": "Recent Projects",
+    "filters": {
+      "all": "All",
+      "saas": "SaaS",
+      "ecommerce": "E-Commerce",
+      "gaming": "Gaming"
+    },
+    "items": [
+      {
+        "id": "scribo",
+        "title": "Scribo",
+        "subtitle": "Hong Kong smart clinic SaaS platform — appointment management, EMR, and patient engagement",
+        "category": "SaaS",
+        "year": "2024",
+        "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80",
+        "colSpan": "md:col-span-2",
+        "tags": ["React", "Next.js", "TypeScript", "Node.js", "Prisma", "MongoDB"],
+        "description": "A comprehensive smart clinic management platform serving Hong Kong healthcare providers, streamlining appointment scheduling, electronic medical records, and patient communication workflows.",
+        "highlights": [
+          "Full-stack SaaS platform",
+          "Real-time appointment scheduling",
+          "EMR & patient management system"
+        ]
+      },
+      {
+        "id": "buffbuff",
+        "title": "buffbuff Mall",
+        "subtitle": "Overseas gaming product marketplace — multi-currency, localized shopping experience",
+        "category": "E-Commerce",
+        "year": "2024",
+        "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80",
+        "colSpan": "md:col-span-1",
+        "tags": ["React", "Next.js", "TypeScript", "E-Commerce", "i18n"],
+        "description": "A feature-rich cross-border gaming product marketplace with multi-language and multi-currency support, optimized for global gaming communities.",
+        "highlights": [
+          "Multi-currency support",
+          "Localized UX for global markets",
+          "Optimized checkout flow"
+        ]
+      },
+      {
+        "id": "deltaforce",
+        "title": "Delta Force Tools",
+        "subtitle": "Overseas game integration hub — tools, guides, and community platform for Delta Force players",
+        "category": "Gaming",
+        "year": "2024",
+        "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+        "colSpan": "md:col-span-2",
+        "tags": ["React", "Next.js", "TypeScript", "Game Tools", "Community"],
+        "description": "An integrated gaming tools and community platform for the Delta Force player community, featuring interactive tools, comprehensive guides, and player resources.",
+        "highlights": [
+          "Interactive game tools",
+          "Community-driven content",
+          "Optimized for global players"
+        ]
+      }
+    ]
+  },
+
+  "ctaSection": {
+    "label": "Open to Opportunities",
+    "heading": "Let's build something exceptional.",
+    "description": "Currently based in Shenzhen and available for full-time, contract, or remote collaboration. If you need a full-stack engineer who delivers clean, scalable solutions — let's talk.",
+    "button1": "View My Projects",
+    "button2": "Get In Touch"
+  },
+
+  "contactPage": {
+    "label": "Get In Touch",
+    "heading": {
+      "segments": [
+        { "text": "Let's craft your" },
+        { "text": "next vision", "className": "font-serif italic text-brand-accent" },
+        { "text": "together." }
+      ]
+    },
+    "email": {
+      "label": "Email",
+      "value": "xuepowuming@163.com"
+    },
+    "location": {
+      "label": "Location",
+      "value": "Shenzhen, China · Available Worldwide"
+    },
+    "timezone": "Shenzhen Time:",
+    "social": {
+      "label": "Find Me On",
+      "github": "GitHub",
+      "email": "Email"
+    },
+    "image": {
+      "label": "SHENZHEN SKYLINE",
+      "quote": "\"Open to remote collaboration across time zones.\""
+    },
+    "form": {
+      "heading": "Send a message",
+      "description": "I handle all communication personally and will respond within 24 hours.",
+      "interestLabel": "I'm interested in...",
+      "interests": [
+        { "id": "fullstack", "label": "Full Stack Development" },
+        { "id": "frontend", "label": "Frontend Architecture" },
+        { "id": "backend", "label": "Backend & API Design" },
+        { "id": "hi", "label": "Just Saying Hi" }
+      ],
+      "name": {
+        "label": "Your Full Name",
+        "placeholder": "e.g. Zhang Wei"
+      },
+      "email": {
+        "label": "Your Email Address",
+        "placeholder": "e.g. zhangwei@example.com"
+      },
+      "message": {
+        "label": "Tell me about your project",
+        "placeholder": "e.g. We are looking for a full-stack engineer to build our SaaS platform..."
+      },
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": {
+        "title": "Message Sent",
+        "description": "Thank you for reaching out. I have received your inquiry and will get back to you shortly.",
+        "button": "Send another message"
+      }
+    }
+  },
+
+  "footer": {
+    "brand": "GeekPorridge",
+    "tagline": "Full-stack engineering · Clean code · End-to-end delivery",
+    "nav": {
+      "about": "About",
+      "contact": "Contact"
+    },
+    "copyright": "© {year} Zhou Yang. All rights reserved.",
+    "location": "Shenzhen, China",
+    "tech": "Built with Next.js + TypeScript"
+  }
 }

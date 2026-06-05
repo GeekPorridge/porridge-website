@@ -12,7 +12,7 @@ export default function RootLayout({
       className={`${ebGaramond.variable} ${hankenGrotesk.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
       <body>
-        <div className="min-h-screen flex flex-col bg-brand-beige text-brand-dark selection:bg-brand-accent selection:text-brand-dark overflow-x-hidden noise-bg">
+        <div className="min-h-screen flex flex-col bg-brand-beige text-brand-dark selection:bg-brand-accent selection:text-brand-dark overflow-x-hidden noise-bg pt-20">
           {children}
         </div>
       </body>
