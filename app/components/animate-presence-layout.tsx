@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -9,10 +10,12 @@ type Props = {
 };
 
 const AnimatePresenceLayout = ({ children, className }: Props) => {
+  const pathname = usePathname();
+
   return (
     <main className="grow">
       <motion.div
-        key={typeof window !== "undefined" ? window.location.pathname : "page"}
+        key={pathname}
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}

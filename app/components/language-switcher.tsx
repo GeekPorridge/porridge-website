@@ -3,7 +3,7 @@
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 
-export function LanguageSwitcher() {
+const LanguageSwitcher = () => {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
@@ -23,4 +23,6 @@ export function LanguageSwitcher() {
       {locale === "en" ? "中文" : "EN"}
     </button>
   );
-}
+};
+
+export default LanguageSwitcher;

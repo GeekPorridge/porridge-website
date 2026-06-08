@@ -4,8 +4,9 @@ import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
-import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { Link } from "@/i18n/routing";
+import LanguageSwitcher from "../components/language-switcher";
+import ThemeToggle from "./theme-toggle";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,11 +95,9 @@ const MobileNav = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="flex items-center justify-between"
+                  className="flex items-center justify-center space-x-6"
                 >
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-brand-dark/40">
-                    {t("navigation")}
-                  </span>
+                  <ThemeToggle />
                   <LanguageSwitcher />
                 </motion.div>
               </div>
