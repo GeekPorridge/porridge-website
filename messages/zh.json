@@ -1,8 +1,8 @@
 {
   "title": "周杨 | 全栈工程师",
   "description": "全栈工程师，base 深圳，5年经验，专注于 React、Next.js、TypeScript 和 Node.js 技术生态。",
-  "about": "关于",
-  "contact": "联系",
+  "about": "关于我",
+  "contact": "联系我",
   "hireMe": "雇佣我",
   "toggleMenu": "切换菜单",
   "tagline": "简洁代码 · 全栈交付 · 组件设计",
@@ -11,232 +11,181 @@
   "rights": "© {year} 周杨。保留所有权利。",
   "crafted": "用心打造",
   "portfolio": "作品集",
-  "hero": {
-    "subtitle": "全栈工程师 · 5年经验 · 深圳",
-    "heading": {
-      "segments": [
-        {
-          "text": "用简洁代码，"
-        },
-        {
-          "text": "构建优雅",
-          "className": "font-serif italic text-brand-accent"
-        },
-        {
-          "text": "的全栈解决方案。"
-        }
-      ]
-    },
-    "description": "热爱工程化、组件化与优雅代码的全栈工程师，喜欢从数据库设计到像素级完美 UI 的全流程交付。持续深耕 React / Next.js / TypeScript 技术生态。",
-    "cta": "查看我的作品",
-    "image": {
-      "label": "📍 深圳",
-      "quote": "\"简洁是效率的灵魂。\""
-    }
-  },
-  "philosophy": {
-    "label": "我的理念",
-    "heading": {
-      "segments": [
-        {
-          "text": "坚信"
-        },
-        {
-          "text": "简洁",
-          "className": "italic"
-        },
-        {
-          "text": "的代码和"
-        },
-        {
-          "text": "扎实",
-          "className": "font-serif italic text-brand-accent"
-        },
-        {
-          "text": "的架构才能创造持久的产品。"
-        }
-      ]
-    },
-    "paragraph1": "优秀的软件不是过度抽象的产物，而是对复杂性的刻意简化——直到每个模块、每个组件、每个 API 端点都有其明确且唯一的职责。我相信编写可读、可维护、可测试的代码。",
-    "paragraph2": "我的实践覆盖全栈——从使用 React 和 Next.js 打造响应式、富有动效的前端体验，到使用 Node.js 和 Prisma 设计稳健的 RESTful API。我享受将功能从概念推进到生产环境，确保技术栈的每一层都经过精心设计。",
-    "cta": "了解我的项目"
-  },
-  "highlights": {
-    "label": "核心优势",
-    "items": [
-      {
-        "id": "fullstack",
-        "quote": "从数据库结构到精美 UI 的完整功能交付——理解每一层如何连接，才能做出更好的架构决策，减少集成时的意外。",
-        "author": "全流程交付",
-        "role": "全栈开发"
-      },
-      {
-        "id": "engineering",
-        "quote": "编写简洁、可维护的代码不是可选项——它是可持续软件的基础。组件驱动架构、清晰的命名规范和严格的自测是日常习惯，而非事后补救。",
-        "author": "工程化与代码质量",
-        "role": "代码质量倡导者"
-      },
-      {
-        "id": "communication",
-        "quote": "适应快、好沟通，习惯在技术实现与业务需求之间架起桥梁——拥有1年面向客户的直接销售经验，善于理解需求、推动落地。",
-        "author": "沟通与适应力",
-        "role": "客户导向型工程师"
-      }
-    ]
-  },
-  "projects": {
-    "label": "精选作品",
-    "heading": "近期项目",
-    "filters": {
-      "all": "全部",
-      "saas": "SaaS",
-      "ecommerce": "电商",
-      "gaming": "游戏"
-    },
-    "items": [
-      {
-        "id": "scribo",
-        "title": "Scribo 智能诊所平台",
-        "subtitle": "香港智能诊所 SaaS 平台——预约管理、电子病历与患者互动一体化解决方案",
-        "category": "SaaS",
-        "year": "2024",
-        "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80",
-        "colSpan": "md:col-span-2",
-        "tags": [
-          "React",
-          "Next.js",
-          "TypeScript",
-          "Node.js",
-          "Prisma",
-          "MongoDB"
-        ],
-        "description": "服务于香港医疗机构的全方位智能诊所管理平台，整合预约排班、电子病历和患者沟通流程。",
-        "highlights": ["全栈 SaaS 平台", "实时预约系统", "电子病历与患者管理"]
-      },
-      {
-        "id": "buffbuff",
-        "title": "buffbuff 商城",
-        "subtitle": "海外游戏商品商城——多币种、本地化购物体验",
-        "category": "电商",
-        "year": "2024",
-        "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80",
-        "colSpan": "md:col-span-1",
-        "tags": ["React", "Next.js", "TypeScript", "电商", "国际化"],
-        "description": "功能丰富的跨境游戏商品交易平台，支持多语言和多币种，为全球游戏社区优化体验。",
-        "highlights": ["多币种支持", "全球市场本地化", "优化的结账流程"]
-      },
-      {
-        "id": "deltaforce",
-        "title": "三角洲行动整合站",
-        "subtitle": "海外游戏整合站点——为三角洲部队玩家提供工具、攻略和社区平台",
-        "category": "游戏",
-        "year": "2024",
-        "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
-        "colSpan": "md:col-span-2",
-        "tags": ["React", "Next.js", "TypeScript", "游戏工具", "社区"],
-        "description": "面向三角洲部队玩家社区的游戏工具与社区整合平台，提供互动工具、全面攻略和玩家资源。",
-        "highlights": ["互动游戏工具", "社区驱动内容", "全球化玩家体验优化"]
-      }
-    ]
-  },
-  "ctaSection": {
-    "label": "期待合作",
-    "heading": "一起打造卓越的产品。",
-    "description": "目前在深圳，可接受全职、合约或远程合作。如果你需要一位能交付简洁、可扩展解决方案的全栈工程师——请联系我。",
-    "button1": "查看项目",
-    "button2": "联系我"
-  },
-  "contactPage": {
-    "label": "联系我",
-    "heading": {
-      "segments": [
-        {
-          "text": "让我们一起"
-        },
-        {
-          "text": "打造",
-          "className": "font-serif italic text-brand-accent"
-        },
-        {
-          "text": "下一个精彩项目。"
-        }
-      ]
-    },
-    "email": {
-      "label": "邮箱",
-      "value": "xuepowuming@163.com"
-    },
-    "location": {
-      "label": "所在地",
-      "value": "中国深圳 · 全球远程协作"
-    },
-    "timezone": "北京时间：",
-    "social": {
-      "label": "社交链接",
-      "github": "GitHub",
-      "email": "邮箱"
-    },
-    "image": {
-      "label": "深圳天际线",
-      "quote": "\"欢迎跨时区远程协作。\""
-    },
-    "form": {
-      "heading": "发送消息",
-      "description": "所有沟通由我本人处理，通常在24小时内回复。",
-      "interestLabel": "我感兴趣的是...",
-      "interests": [
-        {
-          "id": "fullstack",
-          "label": "全栈开发"
-        },
-        {
-          "id": "frontend",
-          "label": "前端架构"
-        },
-        {
-          "id": "backend",
-          "label": "后端与 API 设计"
-        },
-        {
-          "id": "hi",
-          "label": "打个招呼"
-        }
-      ],
-      "name": {
-        "label": "您的姓名",
-        "placeholder": "例如：张伟"
-      },
-      "email": {
-        "label": "您的邮箱",
-        "placeholder": "例如：zhangwei@example.com"
-      },
-      "message": {
-        "label": "告诉我您的项目",
-        "placeholder": "例如：我们正在寻找一位全栈工程师来搭建我们的 SaaS 平台..."
-      },
-      "submit": "发送消息",
-      "submitting": "发送中...",
-      "success": {
-        "title": "消息已发送",
-        "description": "感谢您的来信。我已收到您的咨询，将尽快回复您。",
-        "button": "发送另一条消息"
-      }
-    }
-  },
-  "footer": {
-    "brand": "GeekPorridge",
-    "tagline": "全栈工程 · 简洁代码 · 全流程交付",
-    "nav": {
-      "about": "关于",
-      "contact": "联系"
-    },
-    "copyright": "© {year} 周杨。保留所有权利。",
-    "location": "中国深圳",
-    "tech": "基于 Next.js + TypeScript 构建"
-  },
-  "notFound": {
-    "title": "页面未找到",
-    "description": "您要找的页面不存在或已被移动。",
-    "cta": "返回首页"
-  }
+
+  "heroSubtitle": "全栈工程师 · 5年经验 · 深圳",
+  "heroHeadingSegment0Text": "用简洁代码，",
+  "heroHeadingSegment0ClassName": "",
+  "heroHeadingSegment1Text": "构建优雅",
+  "heroHeadingSegment1ClassName": "font-serif italic text-brand-accent",
+  "heroHeadingSegment2Text": "的全栈解决方案。",
+  "heroHeadingSegment2ClassName": "",
+  "heroDescription": "热爱工程化、组件化与优雅代码的全栈工程师，喜欢从数据库设计到像素级完美 UI 的全流程交付。持续深耕 React / Next.js / TypeScript 技术生态。",
+  "heroCta": "查看我的作品",
+  "heroImageLabel": "📍 深圳",
+  "heroImageQuote": "\"简洁是效率的灵魂。\"",
+
+  "philosophyLabel": "我的理念",
+  "philosophyHeadingSegment0Text": "坚信",
+  "philosophyHeadingSegment0ClassName": "",
+  "philosophyHeadingSegment1Text": "简洁",
+  "philosophyHeadingSegment1ClassName": "italic",
+  "philosophyHeadingSegment2Text": "的代码和",
+  "philosophyHeadingSegment2ClassName": "",
+  "philosophyHeadingSegment3Text": "扎实",
+  "philosophyHeadingSegment3ClassName": "font-serif italic text-brand-accent",
+  "philosophyHeadingSegment4Text": "的架构才能创造持久的产品。",
+  "philosophyHeadingSegment4ClassName": "",
+  "philosophyParagraph1": "优秀的软件不是过度抽象的产物，而是对复杂性的刻意简化——直到每个模块、每个组件、每个 API 端点都有其明确且唯一的职责。我相信编写可读、可维护、可测试的代码。",
+  "philosophyParagraph2": "我的实践覆盖全栈——从使用 React 和 Next.js 打造响应式、富有动效的前端体验，到使用 Node.js 和 Prisma 设计稳健的 RESTful API。我享受将功能从概念推进到生产环境，确保技术栈的每一层都经过精心设计。",
+  "philosophyCta": "了解我的项目",
+
+  "highlightsLabel": "核心优势",
+  "highlight0Id": "fullstack",
+  "highlight0Quote": "从数据库结构到精美 UI 的完整功能交付——理解每一层如何连接，才能做出更好的架构决策，减少集成时的意外。",
+  "highlight0Author": "全流程交付",
+  "highlight0Role": "全栈开发",
+  "highlight1Id": "engineering",
+  "highlight1Quote": "编写简洁、可维护的代码不是可选项——它是可持续软件的基础。组件驱动架构、清晰的命名规范和严格的自测是日常习惯，而非事后补救。",
+  "highlight1Author": "工程化与代码质量",
+  "highlight1Role": "代码质量倡导者",
+  "highlight2Id": "communication",
+  "highlight2Quote": "适应快、好沟通，习惯在技术实现与业务需求之间架起桥梁——拥有1年面向客户的直接销售经验，善于理解需求、推动落地。",
+  "highlight2Author": "沟通与适应力",
+  "highlight2Role": "客户导向型工程师",
+
+  "projectsLabel": "精选作品",
+  "projectsHeading": "近期项目",
+  "projectFilterAll": "全部",
+  "projectFilterSaas": "SaaS",
+  "projectFilterEcommerce": "电商",
+  "projectFilterGaming": "游戏",
+
+  "scriboId": "scribo",
+  "scriboTitle": "Scribo 智能诊所平台",
+  "scriboSubtitle": "香港智能诊所 SaaS 平台——预约管理、电子病历与患者互动一体化解决方案",
+  "scriboCategory": "SaaS",
+  "scriboYear": "2023",
+  "scriboColSpan": "md:col-span-2",
+  "scriboTag0": "React",
+  "scriboTag1": "Next.js",
+  "scriboTag2": "TypeScript",
+  "scriboTag3": "Node.js",
+  "scriboTag4": "Prisma",
+  "scriboTag5": "MongoDB",
+  "scriboDescription": "服务于香港医疗机构的全方位智能诊所管理平台，整合预约排班、电子病历和患者沟通流程。",
+  "scriboHighlight0": "全栈 SaaS 平台",
+  "scriboHighlight1": "实时预约系统",
+  "scriboHighlight2": "电子病历与患者管理",
+
+  "buffbuffId": "buffbuff",
+  "buffbuffTitle": "buffbuff 商城",
+  "buffbuffSubtitle": "海外游戏商品商城——多币种、本地化购物体验",
+  "buffbuffCategory": "电商",
+  "buffbuffYear": "2025",
+  "buffbuffColSpan": "md:col-span-1",
+  "buffbuffTag0": "React",
+  "buffbuffTag1": "Next.js",
+  "buffbuffTag2": "TypeScript",
+  "buffbuffTag3": "电商",
+  "buffbuffTag4": "国际化",
+  "buffbuffDescription": "功能丰富的跨境游戏商品交易平台，支持多语言和多币种，为全球游戏社区优化体验。",
+  "buffbuffHighlight0": "多币种支持",
+  "buffbuffHighlight1": "全球市场本地化",
+  "buffbuffHighlight2": "优化的结账流程",
+
+  "deltaforceId": "deltaforce",
+  "deltaforceTitle": "三角洲行动整合站",
+  "deltaforceSubtitle": "海外游戏整合站点——为三角洲海外玩家提供工具、攻略和社区平台",
+  "deltaforceCategory": "游戏",
+  "deltaforceYear": "2025",
+  "deltaforceColSpan": "md:col-span-2",
+  "deltaforceTag0": "React",
+  "deltaforceTag1": "Next.js",
+  "deltaforceTag2": "TypeScript",
+  "deltaforceTag3": "游戏工具",
+  "deltaforceTag4": "社区",
+  "deltaforceDescription": "面向三角洲海外玩家社区的游戏工具与社区整合平台，提供互动工具、深度攻略和全球化玩家资源。",
+  "deltaforceHighlight0": "互动游戏工具",
+  "deltaforceHighlight1": "社区驱动内容",
+  "deltaforceHighlight2": "全球化玩家体验优化",
+
+  "adminId": "admin",
+  "adminTitle": "React Admin 极简中后台",
+  "adminSubtitle": "开箱即用的极简中后台模板，基于 React + Ant Design，内置动态路由与权限管控",
+  "adminCategory": "中后台",
+  "adminYear": "2021",
+  "adminColSpan": "md:col-span-1",
+  "adminTag0": "React",
+  "adminTag1": "Ant Design",
+  "adminTag2": "TypeScript",
+  "adminTag3": "Vite",
+  "adminDescription": "极简开箱即用的中后台解决方案。基于 Ant Design 组件体系，内置动态路由和 RBAC 权限控制，克隆即可启动开发。",
+  "adminHighlight0": "极简开箱即用",
+  "adminHighlight1": "动态路由与权限控制",
+  "adminHighlight2": "响应式多主题切换",
+
+  "ctaLabel": "期待合作",
+  "ctaHeading": "一起打造卓越的产品。",
+  "ctaDescription": "目前在深圳，可接受全职、合约或远程合作。如果你需要一位能交付简洁、可扩展解决方案的全栈工程师——请联系我。",
+  "ctaButton1": "查看项目",
+  "ctaButton2": "联系我",
+
+  "contactLabel": "联系我",
+  "contactHeadingSegment0Text": "让我们一起",
+  "contactHeadingSegment0ClassName": "",
+  "contactHeadingSegment1Text": "打造",
+  "contactHeadingSegment1ClassName": "font-serif italic text-brand-accent",
+  "contactHeadingSegment2Text": "下一个精彩项目。",
+  "contactHeadingSegment2ClassName": "",
+  "contactEmailLabel": "邮箱",
+  "contactEmailValue": "xuepowuming@163.com",
+  "contactLocationLabel": "所在地",
+  "contactLocationValue": "中国深圳 · 全球远程协作",
+  "contactTimezone": "北京时间：",
+  "contactSocialLabel": "社交链接",
+  "contactSocialGithub": "GitHub",
+  "contactSocialEmail": "邮箱",
+  "contactImageLabel": "深圳天际线",
+  "contactImageQuote": "\"欢迎跨时区远程协作。\"",
+  "contactFormHeading": "发送消息",
+  "contactFormDescription": "所有沟通由我本人处理，通常在24小时内回复。",
+  "contactFormInterestLabel": "我感兴趣的是...",
+  "contactFormInterest0Id": "fullstack",
+  "contactFormInterest0Label": "全栈开发",
+  "contactFormInterest1Id": "frontend",
+  "contactFormInterest1Label": "前端架构",
+  "contactFormInterest2Id": "backend",
+  "contactFormInterest2Label": "后端与 API 设计",
+  "contactFormInterest3Id": "hi",
+  "contactFormInterest3Label": "打个招呼",
+  "contactFormNameLabel": "您的姓名",
+  "contactFormNamePlaceholder": "例如：张伟",
+  "contactFormEmailLabel": "您的邮箱",
+  "contactFormEmailPlaceholder": "例如：zhangwei@example.com",
+  "contactFormMessageLabel": "告诉我您的项目",
+  "contactFormMessagePlaceholder": "例如：我们正在寻找一位全栈工程师来搭建我们的 SaaS 平台...",
+  "contactFormSubmit": "发送消息",
+  "contactFormSubmitting": "发送中...",
+  "contactFormSuccessTitle": "消息已发送",
+  "contactFormSuccessDescription": "感谢您的来信。我已收到您的咨询，将尽快回复您。",
+  "contactFormSuccessButton": "发送另一条消息",
+
+  "footerBrand": "GeekPorridge",
+  "footerTagline": "全栈工程 · 简洁代码 · 全流程交付",
+  "footerNavAbout": "关于",
+  "footerNavContact": "联系",
+  "footerCopyright": "© {year} 周杨。保留所有权利。",
+  "footerLocation": "中国深圳",
+  "footerTech": "基于 Next.js + TypeScript 构建",
+
+  "notFoundTitle": "页面未找到",
+  "notFoundDescription": "您要找的页面不存在或已被移动。",
+  "notFoundCta": "返回首页",
+
+  "portfolioLabel": "作品集",
+  "portfolioTitle": "精选作品",
+  "portfolioDescription": "精选项目合集，涵盖 SaaS 平台、电商解决方案和游戏工具等。",
+  "portfolioStatsProjects": "项目",
+  "portfolioStatsCategories": "领域",
+  "portfolioStatsTech": "技术栈"
 }

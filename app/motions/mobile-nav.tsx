@@ -14,6 +14,7 @@ const MobileNav = () => {
 
   const navItems = [
     { id: "about", label: t("about"), href: "/" },
+    { id: "portfolio", label: t("portfolio"), href: "/portfolio" },
     { id: "contact", label: t("contact"), href: "/contact" },
   ] as const;
 
@@ -48,7 +49,11 @@ const MobileNav = () => {
           className="rounded-full p-2 text-brand-dark hover:bg-brand-bone/40 focus:outline-none cursor-pointer"
           aria-label={isOpen ? "Close menu" : t("toggleMenu")}
         >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isOpen ? (
+            <X className="h-6 w-6 cursor-pointer" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </button>
       </div>
 

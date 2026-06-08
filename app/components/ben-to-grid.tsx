@@ -1,7 +1,9 @@
 "use client";
+
+import dayjs from "dayjs";
 import { ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import Image from "next/image";
 
 type Project = {
   id: string;
@@ -9,7 +11,6 @@ type Project = {
   subtitle: string;
   category: string;
   year: string;
-  image: string;
   colSpan: string;
   tags: string[];
   description: string;
@@ -17,140 +18,164 @@ type Project = {
 };
 
 type ProjectsData = {
-  label: string;
-  heading: string;
   filters: Record<string, string>;
   items: Project[];
 };
 
-const BentoGrid = ({ projects }: { projects: ProjectsData }) => {
-  const filterKeys = Object.keys(projects.filters) as Array<
-    keyof typeof projects.filters
-  >;
-  const [activeFilter, setActiveFilter] = useState<string>(filterKeys[0]);
+type Stats = {
+  projects: number;
+  categories: number;
+  technologies: number;
+};
 
-  const filteredProjects = projects.items.filter((proj) => {
-    if (activeFilter === "all") return true;
-    const filterLabel = projects.filters[activeFilter];
-    return proj.category === filterLabel;
-  });
+type StatsLabels = {
+  projects: string;
+  categories: string;
+  technologies: string;
+};
+
+const PROJECT_IMAGES: Record<string, string> = {
+  scribo: "/scribo.png",
+  buffbuff: "/buffbuff.png",
+  deltaforce: "/deltaforcetools.png",
+  admin: "/system.png",
+};
+
+const PROJECT_URLS: Record<string, string> = {
+  scribo: "https://www.scribo.com.hk/",
+  buffbuff: "https://buffbuff.com/",
+  deltaforce: "https://deltaforcetools.gg/",
+  admin: "https://react-admin-blond-delta.vercel.app/",
+};
+
+function ProjectImage({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+  category: string;
+}) {
+  return (
+    <Image
+      fill
+      src={src}
+      alt={alt}
+      referrerPolicy="no-referrer"
+      className="object-contain transition-transform group-hover:scale-[1.04] duration-1000"
+    />
+  );
+}
+
+function ProjectRow({ project, index }: { project: Project; index: number }) {
+  const href = PROJECT_URLS[project.id];
 
   return (
-    <div className="space-y-12">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-b border-brand-bone/40 pb-6">
-        <div>
-          <span className="font-mono text-[10px] text-brand-dark/40 uppercase tracking-widest block mb-1">
-            {projects.label}
-          </span>
-          <h2 className="font-serif text-2xl font-light tracking-tight text-brand-dark">
-            {projects.heading}
-          </h2>
-        </div>
-
-        {/* Filter buttons */}
-        <div className="flex flex-wrap items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest">
-          {filterKeys.map((key) => {
-            const isActive = activeFilter === key;
-            return (
-              <button
-                key={key}
-                type="button"
-                id={`filter-button-${key}`}
-                onClick={() => setActiveFilter(key)}
-                className={`relative px-4 py-2 rounded-full cursor-pointer transition-colors ${
-                  isActive
-                    ? "text-brand-beige"
-                    : "text-brand-dark/60 hover:text-brand-dark"
-                }`}
-              >
-                {isActive && (
-                  <motion.span
-                    layoutId="activeFilterBackdrop"
-                    className="absolute inset-0 z-0 rounded-full bg-brand-dark"
-                    transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                  />
-                )}
-                <span className="relative z-10">{projects.filters[key]}</span>
-              </button>
-            );
-          })}
-        </div>
+    <motion.a
+      href={href}
+      target={href ? "_blank" : undefined}
+      rel={href ? "noopener noreferrer" : undefined}
+      layout
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.08,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className="group flex flex-col overflow-hidden rounded-3xl bg-brand-bone/20 border border-brand-bone/50 cursor-pointer hover:shadow-xl hover:border-brand-accent/30 transition-all duration-500"
+    >
+      {/* Image */}
+      <div className="relative w-full aspect-16/10 overflow-hidden">
+        <ProjectImage
+          src={PROJECT_IMAGES[project.id] ?? ""}
+          alt={project.title}
+          category={project.category}
+        />
       </div>
 
+      {/* Content */}
+      <div className="p-6 sm:p-8 flex flex-col flex-1">
+        <div className="flex items-center justify-between gap-3 mb-4">
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] px-3 py-1 rounded-full bg-brand-dark text-brand-beige">
+              {project.category}
+            </span>
+            <span className="font-mono text-[10px] text-brand-dark/30 tracking-widest">
+              {project.year
+                .split("-")
+                .map((y) => dayjs(y, "YYYY").format("YYYY"))
+                .join(" - ")}
+            </span>
+          </div>
+          {href && (
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-beige border border-brand-dark/5 text-brand-dark transition-all duration-300 group-hover:bg-brand-dark group-hover:text-brand-beige">
+              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </div>
+          )}
+        </div>
+
+        <h3 className="font-serif text-xl sm:text-2xl font-medium tracking-tight text-brand-dark group-hover:text-brand-accent transition-colors duration-300">
+          {project.title}
+        </h3>
+
+        <p className="font-sans text-sm text-brand-dark/55 mt-3 leading-relaxed">
+          {project.description}
+        </p>
+
+        {project.highlights.length > 0 && (
+          <ul className="mt-4 space-y-2">
+            {project.highlights.map((h) => (
+              <li
+                key={h}
+                className="flex items-start gap-2 font-sans text-xs sm:text-sm text-brand-dark/65"
+              >
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-accent/60 shrink-0" />
+                {h}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mt-5">
+          {project.tags.map((t) => (
+            <span
+              key={t}
+              className="font-mono text-[9px] text-brand-dark/40 bg-brand-bone/50 px-2.5 py-1 rounded uppercase tracking-wider"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.a>
+  );
+}
+
+const PortfolioShowcase = ({
+  projects,
+}: {
+  projects: ProjectsData;
+  stats: Stats;
+  statsLabels: StatsLabels;
+}) => {
+  return (
+    <div className="space-y-20">
+      {/* Project grid */}
       <motion.div
         layout
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr"
-        id="project-bento-grid"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 auto-rows-auto"
       >
         <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project, index) => {
-            return (
-              <motion.div
-                layout
-                id={`project-card-${project.id}`}
-                key={project.id}
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-brand-bone/30 border border-brand-bone/60 p-5 cursor-pointer hover:border-brand-accent ${
-                  project.colSpan || ""
-                } transition-all duration-500 hover:shadow-lg`}
-              >
-                {/* Card Top Information */}
-                <div className="flex items-center justify-between mb-4 relative z-10">
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-brand-dark/50">
-                    {project.category} / {project.year}
-                  </span>
-
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-beige border border-brand-dark/5 text-brand-dark transition-all duration-300 group-hover:bg-brand-dark group-hover:text-brand-beige">
-                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </div>
-                </div>
-
-                {/* Main Visual Image */}
-                <div className="relative w-full overflow-hidden rounded-xl bg-brand-bone aspect-video md:aspect-auto md:flex-grow mb-5">
-                  {/* <img
-                    src={project.image}
-                    alt={project.title}
-                    referrerPolicy="no-referrer"
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = "none";
-                    }}
-                  /> */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-
-                {/* Card Bottom Meta */}
-                <div className="relative z-10">
-                  <h3 className="font-serif text-lg sm:text-xl font-medium tracking-tight text-brand-dark mt-1 group-hover:text-brand-accent transition-colors duration-300">
-                    {project.title}
-                  </h3>
-
-                  <p className="font-sans text-xs text-brand-dark/60 mt-1 lines-clamp-2 leading-relaxed h-10 overflow-hidden text-ellipsis">
-                    {project.subtitle}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 mt-2 pt-2 border-t border-brand-bone/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {project.tags.slice(0, 2).map((t: string) => (
-                      <span
-                        key={t}
-                        className="font-mono text-[8px] text-brand-dark/50 bg-brand-bone px-2 py-0.5 rounded uppercase tracking-wider"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          {projects.items.map((project, index) => (
+            <ProjectRow key={project.id} project={project} index={index} />
+          ))}
         </AnimatePresence>
       </motion.div>
     </div>
   );
 };
 
-export default BentoGrid;
+export default PortfolioShowcase;

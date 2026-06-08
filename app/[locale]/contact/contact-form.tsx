@@ -88,7 +88,7 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
     }`;
 
   return (
-    <div className="w-full" id="contact-form-component">
+    <div className="w-full">
       {!isSubmitted ? (
         <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit}>
           {fieldErrors._form && (

@@ -29,7 +29,6 @@ const CopyEmailButton = ({ email }: { email: string }) => {
   return (
     <button
       type="button"
-      id="btn-copy-email"
       onClick={handleCopy}
       className={`p-1 px-2.5 rounded text-[9px] font-mono transition-colors flex items-center space-x-1 cursor-pointer ${
         copied
