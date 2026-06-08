@@ -2,7 +2,7 @@
 
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import AnimatePresenceLayout from "@/app/components/animate-presence-layout";
-import PortfolioShowcase from "@/app/components/ben-to-grid";
+import PortfolioShowcase from "@/app/components/bento-grid";
 
 type Props = {
   params: Promise<{ locale: string }>;

@@ -62,6 +62,7 @@ function ProjectImage({
       src={src}
       alt={alt}
       referrerPolicy="no-referrer"
+      sizes="100vw"
       className="object-contain transition-transform group-hover:scale-[1.04] duration-1000"
     />
   );

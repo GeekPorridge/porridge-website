@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../components/language-switcher";
-import ThemeToggle from "./theme-toggle";
+import ThemeToggle from "../components/theme-toggle";
 
 const FadeInRight = () => {
   const t = useTranslations();

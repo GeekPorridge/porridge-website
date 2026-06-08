@@ -1,7 +1,7 @@
+import Nav from "../components/nav";
 import FadeInRight from "../motions/fade-in-right";
 import Logo from "../motions/logo";
 import MobileNav from "../motions/mobile-nav";
-import Nav from "../motions/nav";
 
 const Header = async () => {
   return (

@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 
@@ -30,11 +31,12 @@ const CopyEmailButton = ({ email }: { email: string }) => {
     <button
       type="button"
       onClick={handleCopy}
-      className={`p-1 px-2.5 rounded text-[9px] font-mono transition-colors flex items-center space-x-1 cursor-pointer ${
+      className={clsx(
+        "p-1 px-2.5 rounded text-[9px] font-mono transition-colors flex items-center space-x-1 cursor-pointer",
         copied
           ? "bg-emerald-100 text-emerald-700"
-          : "bg-brand-bone/50 hover:bg-brand-dark hover:text-brand-beige"
-      }`}
+          : "bg-brand-bone/50 hover:bg-brand-dark hover:text-brand-beige",
+      )}
     >
       {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
       <span>{copied ? "COPIED" : "COPY"}</span>

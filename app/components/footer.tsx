@@ -1,4 +1,4 @@
-import type { TFunc } from "@/app/type";
+import type { TFunc } from "@/app/types";
 
 const Footer = async ({ t }: { t: TFunc }) => {
   return (

@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GeekPorridge — 个人作品集
 
-## Getting Started
+这是一个基于 **Next.js 16 (App Router)**、**Tailwind CSS v4** 和 **next-intl** 构建的个人作品集网站，支持完整的国际化（英语/中文）。该网站展示了精选作品、工程理念以及包含服务端验证功能的联系表单。
 
-First, run the development server:
+<p align="center">
+  <a href="README_EN.md">🇺🇸 English</a>
+</p>
+
+## 技术栈
+
+| 层级 | 技术 |
+|-------|-----------|
+| 框架 | Next.js 16 (React 19, App Router) |
+| 样式 | Tailwind CSS v4 |
+| 动画 | Motion (Framer Motion) |
+| 国际化 (i18n) | next-intl (en / zh) |
+| 验证 | Joi (联系表单服务端验证) |
+| HTTP | SWR (客户端数据获取) |
+| 图标 | Lucide React |
+| 代码检查 | Biome (格式化 + Lint) |
+
+## 快速开始
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+访问 [http://localhost:3000](http://localhost:3000) 查看网站。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 脚本命令
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| 命令 | 描述 |
+|---------|------------|
+| `pnpm dev` | 启动开发服务器 |
+| `pnpm build` | 生产环境构建 |
+| `pnpm start` | 启动生产服务器 |
+| `pnpm lint` | 运行 Biome 检查 |
+| `pnpm format` | 运行 Biome 格式化 |
+| `pnpm lint:fix` | 运行 Biome 检查并自动修复 |
 
-## Learn More
+```
+porridge-website/
+├── app/
+│   ├── [locale]/               # 路由组 (en, zh)
+│   │   ├── contact/            # 联系页面
+│   │   ├── portfolio/          # 作品集页面
+│   │   ├── error.tsx           # 错误边界 (Error Boundary)
+│   │   ├── layout.tsx          # 语言区域布局 (页眉 + 页脚)
+│   │   ├── loading.tsx         # 加载骨架屏
+│   │   └── page.tsx            # 首页
+│   ├── api/contact/route.ts    # 联系表单 API
+│   ├── components/             # 共享 UI 组件
+│   ├── motions/               # 动画相关组件
+│   ├── fonts.ts               # Google Fonts 配置
+│   ├── globals.css            # Tailwind CSS + 主题变量
+│   ├── layout.tsx             # 根布局
+│   ├── not-found.tsx          # 404 页面
+│   └── types/                 # 共享 TypeScript 类型
+├── i18n/                      # 国际化配置
+├── messages/                  # 翻译 JSON 文件
+└── public/                    # 静态资源
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 功能特性
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **双语支持** — 基于 next-intl 实现完整的英/中国际化
+- **高性能** — 使用 Turbopack 开发、流式渲染 (Streaming) 及图像优化
+- **响应式设计** — 移动端优先布局，作品集采用 Bento 网格风格
+- **深色模式** — CSS 主题切换，支持 localStorage 持久化存储
+- **联系表单** — 包含 Joi 验证的 API 路由及兴趣标签选择
+- **SEO 优化** — 针对不同语言区域的动态 Open Graph / Twitter 元数据
+- **动画效果** — 基于 Motion 实现滚动触发的入场动画
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 部署
 
-## Deploy on Vercel
+```bash
+pnpm build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+静态构建产物位于 `.next/` 目录中。可部署至任意 Node.js 托管平台（如 Vercel、Railway 等）。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 许可证
+
+MIT — 欢迎将其用作您个人作品集网站的模板。

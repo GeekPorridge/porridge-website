@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "../components/language-switcher";
-import ThemeToggle from "./theme-toggle";
+import ThemeToggle from "../components/theme-toggle";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);

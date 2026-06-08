@@ -1,4 +1,5 @@
 "use client";
+import clsx from "clsx";
 import { AlertCircle, CheckCircle, Send } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
@@ -81,11 +82,12 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
   };
 
   const inputClasses = (hasError: boolean) =>
-    `w-full bg-transparent border-b py-3.5 px-1 text-sm font-sans text-brand-dark placeholder:text-brand-dark/30 focus:outline-none transition-colors ${
+    clsx(
+      "w-full bg-transparent border-b py-3.5 px-1 text-sm font-sans text-brand-dark placeholder:text-brand-dark/30 focus:outline-none transition-colors",
       hasError
         ? "border-red-400 focus:border-red-500"
-        : "border-brand-bone focus:border-brand-accent"
-    }`;
+        : "border-brand-bone focus:border-brand-accent",
+    );
 
   return (
     <div className="w-full">
@@ -114,11 +116,12 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
                     key={opt.id}
                     id={`interest-chip-${opt.id}`}
                     onClick={() => toggleInterest(opt.id)}
-                    className={`rounded-full px-5 py-2.5 font-mono text-[10px] uppercase tracking-wider transition-all cursor-pointer ${
+                    className={clsx(
+                      "rounded-full px-5 py-2.5 font-mono text-[10px] uppercase tracking-wider transition-all cursor-pointer",
                       isActive
                         ? "bg-brand-dark text-brand-beige border border-brand-dark"
-                        : "bg-brand-bone/35 border border-brand-bone hover:border-brand-accent hover:bg-brand-bone/60 text-brand-dark/70"
-                    }`}
+                        : "bg-brand-bone/35 border border-brand-bone hover:border-brand-accent hover:bg-brand-bone/60 text-brand-dark/70",
+                    )}
                   >
                     {opt.label}
                   </button>
