@@ -1,12 +1,11 @@
 "use server";
 
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import AnimatePresenceLayout from "../components/animate-presence-layout";
-import BentoGrid from "../components/ben-to-grid";
 import HeroSubtitle from "../motions/hero-subtitle";
 import WaveText from "../motions/wave-text";
-import Image from "next/image";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -36,28 +35,10 @@ const Home = async ({ params }: Props) => {
     role: string;
   }>;
 
-  const projects = t.raw("projects") as {
-    label: string;
-    heading: string;
-    filters: Record<string, string>;
-    items: Array<{
-      id: string;
-      title: string;
-      subtitle: string;
-      category: string;
-      year: string;
-      image: string;
-      colSpan: string;
-      tags: string[];
-      description: string;
-      highlights: string[];
-    }>;
-  };
-
   return (
     <AnimatePresenceLayout className="space-y-24 md:space-y-36">
       {/* Hero Section */}
-      <section className="space-y-8">
+      <section className="space-y-8 mt-20">
         <div className="max-w-4xl space-y-6">
           <HeroSubtitle>{t("hero.subtitle")}</HeroSubtitle>
           <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-light tracking-tight leading-[1.05] text-brand-dark">
@@ -90,9 +71,8 @@ const Home = async ({ params }: Props) => {
           <Image
             src="/shenzhen.png"
             alt="Shenzhen Cityscape"
-            layout="fill"
-            objectFit="cover"
-            className="w-full h-full object-cover grayscale brightness-95 opacity-90 hover:grayscale-0 transition-all duration-1000"
+            fill
+            className="object-cover grayscale brightness-95 opacity-90 hover:grayscale-0 transition-all duration-1000"
           />
           <div className="absolute inset-0 bg-linear-to-t from-brand-dark/45 via-transparent to-transparent" />
 
@@ -141,16 +121,8 @@ const Home = async ({ params }: Props) => {
         </div>
       </section>
 
-      {/* Projects Bento Grid */}
-      <section className="space-y-10">
-        <BentoGrid projects={projects} />
-      </section>
-
       {/* Highlights (replaces Testimonials) */}
-      <section
-        className="pt-16"
-        id="about-highlights"
-      >
+      <section className="pt-16" id="about-highlights">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <span className="font-mono text-[10px] uppercase tracking-widest text-brand-accent">
             {t("highlights.label")}

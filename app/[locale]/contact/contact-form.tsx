@@ -1,5 +1,5 @@
 "use client";
-import { CheckCircle, Send } from "lucide-react";
+import { AlertCircle, CheckCircle, Send } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 
@@ -20,10 +20,18 @@ type FormData = {
   };
 };
 
+type FieldErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+  _form?: string;
+};
+
 const ContactForm = ({ formData }: { formData: FormData }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   const toggleInterest = (id: string) => {
     setSelectedInterests((prev) =>
@@ -31,21 +39,67 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
     );
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFieldErrors({});
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formDataObj = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement)
+        .value,
+      interests: selectedInterests,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formDataObj),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        if (data.errors) {
+          setFieldErrors(data.errors);
+        }
+        setIsSubmitting(false);
+        return;
+      }
+
+      setIsSubmitted(true);
+    } catch {
+      setFieldErrors({
+        _form: "Network error. Please check your connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const inputClasses = (hasError: boolean) =>
+    `w-full bg-transparent border-b py-3.5 px-1 text-sm font-sans text-brand-dark placeholder:text-brand-dark/30 focus:outline-none transition-colors ${
+      hasError
+        ? "border-red-400 focus:border-red-500"
+        : "border-brand-bone focus:border-brand-accent"
+    }`;
+
   return (
     <div className="w-full" id="contact-form-component">
       {!isSubmitted ? (
-        <form
-          className="space-y-6 md:space-y-8"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setIsSubmitting(true);
-            // Simulate submission
-            setTimeout(() => {
-              setIsSubmitting(false);
-              setIsSubmitted(true);
-            }, 1500);
-          }}
-        >
+        <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit}>
+          {fieldErrors._form && (
+            <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 flex items-start space-x-2.5">
+              <AlertCircle className="h-4 w-4 text-red-500 mt-0.5 shrink-0" />
+              <p className="font-sans text-xs text-red-700">
+                {fieldErrors._form}
+              </p>
+            </div>
+          )}
+
           {/* Interest chips */}
           <div className="space-y-3">
             <p className="font-mono text-[10px] uppercase tracking-widest text-brand-dark/50">
@@ -84,11 +138,17 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
               </label>
               <input
                 id="name-input"
+                name="name"
                 type="text"
                 required
                 placeholder={formData.name.placeholder}
-                className="w-full bg-transparent border-b border-brand-bone py-3.5 px-1 text-sm font-sans text-brand-dark placeholder:text-brand-dark/30 focus:border-brand-accent focus:outline-none transition-colors"
+                className={inputClasses(!!fieldErrors.name)}
               />
+              {fieldErrors.name && (
+                <p className="font-mono text-[9px] text-red-500 mt-1">
+                  {fieldErrors.name}
+                </p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -100,11 +160,17 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
               </label>
               <input
                 id="email-input"
+                name="email"
                 type="email"
                 required
                 placeholder={formData.email.placeholder}
-                className="w-full bg-transparent border-b border-brand-bone py-3.5 px-1 text-sm font-sans text-brand-dark placeholder:text-brand-dark/30 focus:border-brand-accent focus:outline-none transition-colors"
+                className={inputClasses(!!fieldErrors.email)}
               />
+              {fieldErrors.email && (
+                <p className="font-mono text-[9px] text-red-500 mt-1">
+                  {fieldErrors.email}
+                </p>
+              )}
             </div>
           </div>
 
@@ -118,11 +184,17 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
             </label>
             <textarea
               id="message-input"
+              name="message"
               rows={4}
               required
               placeholder={formData.message.placeholder}
-              className="w-full bg-transparent border-b border-brand-bone py-3 px-1 text-sm font-sans text-brand-dark placeholder:text-brand-dark/30 focus:border-brand-accent focus:outline-none transition-colors resize-none"
+              className={inputClasses(!!fieldErrors.message)}
             />
+            {fieldErrors.message && (
+              <p className="font-mono text-[9px] text-red-500 mt-1">
+                {fieldErrors.message}
+              </p>
+            )}
           </div>
 
           <div className="pt-2">
@@ -158,7 +230,10 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
           </div>
           <button
             type="button"
-            onClick={() => setIsSubmitted(false)}
+            onClick={() => {
+              setIsSubmitted(false);
+              setFieldErrors({});
+            }}
             className="font-mono text-[10px] tracking-wider uppercase text-brand-accent hover:text-brand-dark underline underline-offset-4 cursor-pointer"
           >
             {formData.success.button}

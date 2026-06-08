@@ -10,14 +10,21 @@
   "social": "Social",
   "rights": "© {year} Zhou Yang. All rights reserved.",
   "crafted": "Built with precision",
-
+  "portfolio": "Portfolio",
   "hero": {
     "subtitle": "Full Stack Engineer · 5 Years Exp · Shenzhen",
     "heading": {
       "segments": [
-        { "text": "Building" },
-        { "text": "elegant", "className": "font-serif italic text-brand-accent" },
-        { "text": "full-stack solutions through clean code." }
+        {
+          "text": "Building"
+        },
+        {
+          "text": "elegant",
+          "className": "font-serif italic text-brand-accent"
+        },
+        {
+          "text": "full-stack solutions through clean code."
+        }
       ]
     },
     "description": "A full-stack engineer passionate about engineering excellence, component-driven architecture, and end-to-end delivery — from thoughtful database design to pixel-perfect, performant user interfaces.",
@@ -27,23 +34,33 @@
       "quote": "\"Simplicity is the soul of efficiency.\""
     }
   },
-
   "philosophy": {
     "label": "My Philosophy",
     "heading": {
       "segments": [
-        { "text": "Guided by the belief that" },
-        { "text": "clean", "className": "italic" },
-        { "text": "code and" },
-        { "text": "solid", "className": "font-serif italic text-brand-accent" },
-        { "text": "architecture create lasting products." }
+        {
+          "text": "Guided by the belief that"
+        },
+        {
+          "text": "clean",
+          "className": "italic"
+        },
+        {
+          "text": "code and"
+        },
+        {
+          "text": "solid",
+          "className": "font-serif italic text-brand-accent"
+        },
+        {
+          "text": "architecture create lasting products."
+        }
       ]
     },
     "paragraph1": "Great software is not the product of excessive abstraction. Rather, it is the deliberate simplification of complexity until every module, every component, and every API endpoint serves a clear and single purpose. I believe in writing code that is readable, maintainable, and testable.",
     "paragraph2": "My practice spans the full stack — from crafting responsive, animated frontend experiences with React and Next.js, to designing robust RESTful APIs with Node.js and Prisma. I thrive on taking features from concept to production, ensuring every layer of the stack is thoughtfully engineered.",
     "cta": "Discover My Projects"
   },
-
   "highlights": {
     "label": "Core Strengths",
     "items": [
@@ -67,7 +84,6 @@
       }
     ]
   },
-
   "projects": {
     "label": "Selected Works",
     "heading": "Recent Projects",
@@ -86,7 +102,14 @@
         "year": "2024",
         "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80",
         "colSpan": "md:col-span-2",
-        "tags": ["React", "Next.js", "TypeScript", "Node.js", "Prisma", "MongoDB"],
+        "tags": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Node.js",
+          "Prisma",
+          "MongoDB"
+        ],
         "description": "A comprehensive smart clinic management platform serving Hong Kong healthcare providers, streamlining appointment scheduling, electronic medical records, and patient communication workflows.",
         "highlights": [
           "Full-stack SaaS platform",
@@ -128,7 +151,6 @@
       }
     ]
   },
-
   "ctaSection": {
     "label": "Open to Opportunities",
     "heading": "Let's build something exceptional.",
@@ -136,14 +158,20 @@
     "button1": "View My Projects",
     "button2": "Get In Touch"
   },
-
   "contactPage": {
     "label": "Get In Touch",
     "heading": {
       "segments": [
-        { "text": "Let's craft your" },
-        { "text": "next vision", "className": "font-serif italic text-brand-accent" },
-        { "text": "together." }
+        {
+          "text": "Let's craft your"
+        },
+        {
+          "text": "next vision",
+          "className": "font-serif italic text-brand-accent"
+        },
+        {
+          "text": "together."
+        }
       ]
     },
     "email": {
@@ -169,10 +197,22 @@
       "description": "I handle all communication personally and will respond within 24 hours.",
       "interestLabel": "I'm interested in...",
       "interests": [
-        { "id": "fullstack", "label": "Full Stack Development" },
-        { "id": "frontend", "label": "Frontend Architecture" },
-        { "id": "backend", "label": "Backend & API Design" },
-        { "id": "hi", "label": "Just Saying Hi" }
+        {
+          "id": "fullstack",
+          "label": "Full Stack Development"
+        },
+        {
+          "id": "frontend",
+          "label": "Frontend Architecture"
+        },
+        {
+          "id": "backend",
+          "label": "Backend & API Design"
+        },
+        {
+          "id": "hi",
+          "label": "Just Saying Hi"
+        }
       ],
       "name": {
         "label": "Your Full Name",
@@ -195,7 +235,6 @@
       }
     }
   },
-
   "footer": {
     "brand": "GeekPorridge",
     "tagline": "Full-stack engineering · Clean code · End-to-end delivery",
@@ -206,5 +245,10 @@
     "copyright": "© {year} Zhou Yang. All rights reserved.",
     "location": "Shenzhen, China",
     "tech": "Built with Next.js + TypeScript"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "cta": "Back to Home"
   }
 }
