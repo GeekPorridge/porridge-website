@@ -112,6 +112,8 @@ const Home = async ({ params }: Props) => {
             src="/shenzhen.png"
             alt="Shenzhen Cityscape"
             fill
+            priority
+            sizes="100vw"
             className="object-cover grayscale brightness-95 opacity-90 hover:grayscale-0 transition-all duration-1000"
           />
           <div className="absolute inset-0 bg-linear-to-t from-brand-dark/45 via-transparent to-transparent" />
@@ -128,9 +130,7 @@ const Home = async ({ params }: Props) => {
       </section>
 
       {/* Philosophy / Manifesto Section */}
-      <section
-        className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-start"
-      >
+      <section className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-start">
         <div className="md:col-span-5">
           <span className="font-mono text-[10px] uppercase tracking-widest text-brand-accent block mb-2">
             {t("philosophyLabel")}

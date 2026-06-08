@@ -1,12 +1,12 @@
 "use server";
 
 import { Camera, Globe, LinkIcon } from "lucide-react";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import AnimatePresenceLayout from "@/app/components/animate-presence-layout";
 import CopyEmailButton from "@/app/components/copy-email-button";
-import ContactForm from "./contact-form";
-import Image from "next/image";
 import LiveClock from "@/app/components/live-clock";
+import ContactForm from "./contact-form";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -122,13 +122,10 @@ const Contact = async ({ params }: Props) => {
                 <span className="font-sans text-sm font-semibold text-brand-dark block">
                   {t("contactLocationValue")}
                 </span>
-                <div
-                  className="inline-flex items-center space-x-2.5 bg-brand-bone/35 border border-brand-bone px-3 py-1.5 rounded-full"
-                >
+                <div className="inline-flex items-center space-x-2.5 bg-brand-bone/35 border border-brand-bone px-3 py-1.5 rounded-full">
                   <Globe className="h-3.5 w-3.5 text-brand-accent" />
                   <span className="font-mono text-[10px] tracking-wider text-brand-dark/75">
-                    {t("contactTimezone")}{" "}
-                    <LiveClock />
+                    {t("contactTimezone")} <LiveClock />
                   </span>
                 </div>
               </div>
@@ -166,6 +163,8 @@ const Contact = async ({ params }: Props) => {
               src="/timezone.png"
               alt="Shenzhen Cityscape"
               fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover  brightness-95 opacity-90 grayscale-0 transition-all duration-1000"
             />
             <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-brand-dark/70 p-4 text-left">
@@ -180,9 +179,7 @@ const Contact = async ({ params }: Props) => {
         </div>
 
         {/* Right side: Contact Form */}
-        <div
-          className="lg:col-span-7 bg-brand-bone/15 border border-brand-bone/70 p-6 sm:p-10 rounded-3xl"
-        >
+        <div className="lg:col-span-7 bg-brand-bone/15 border border-brand-bone/70 p-6 sm:p-10 rounded-3xl">
           <div className="mb-6">
             <h3 className="font-serif text-xl font-medium tracking-tight">
               {formData.heading}
