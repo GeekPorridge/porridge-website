@@ -18,6 +18,7 @@ A personal portfolio website built with **Next.js 16 (App Router)**, **Tailwind 
 | HTTP | SWR (client data fetching) |
 | Icons | Lucide React |
 | Linting | Biome (format + lint) |
+| Testing | Vitest |
 
 ## Getting Started
 
@@ -38,6 +39,9 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 | `pnpm lint` | Biome check |
 | `pnpm format` | Biome format |
 | `pnpm lint:fix` | Biome check with auto-fix |
+| `pnpm test` | Run Vitest tests |
+| `pnpm test:watch` | Run Vitest in watch mode |
+| `pnpm test:ui` | Run Vitest with UI |
 
 ## Project Structure
 
@@ -60,6 +64,7 @@ porridge-website/
 │   ├── not-found.tsx          # 404 page
 │   └── types/                 # Shared TypeScript types
 ├── i18n/                      # Internationalization config
+├── lib/                       # Utility functions and tests
 ├── messages/                  # Translation JSON files
 └── public/                    # Static assets
 ```

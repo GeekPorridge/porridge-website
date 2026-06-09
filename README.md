@@ -18,6 +18,7 @@
 | HTTP | SWR (客户端数据获取) |
 | 图标 | Lucide React |
 | 代码检查 | Biome (格式化 + Lint) |
+| 测试 | Vitest |
 
 ## 快速开始
 
@@ -38,6 +39,11 @@ pnpm dev
 | `pnpm lint` | 运行 Biome 检查 |
 | `pnpm format` | 运行 Biome 格式化 |
 | `pnpm lint:fix` | 运行 Biome 检查并自动修复 |
+| `pnpm test` | 运行 Vitest 测试 |
+| `pnpm test:watch` | 以 watch 模式运行 Vitest |
+| `pnpm test:ui` | 以 UI 模式运行 Vitest |
+
+## 项目结构
 
 ```
 porridge-website/
@@ -58,6 +64,7 @@ porridge-website/
 │   ├── not-found.tsx          # 404 页面
 │   └── types/                 # 共享 TypeScript 类型
 ├── i18n/                      # 国际化配置
+├── lib/                       # 工具函数与测试
 ├── messages/                  # 翻译 JSON 文件
 └── public/                    # 静态资源
 ```

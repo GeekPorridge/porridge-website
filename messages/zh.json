@@ -166,6 +166,7 @@
   "contactFormMessagePlaceholder": "例如：我们正在寻找一位全栈工程师来搭建我们的 SaaS 平台...",
   "contactFormSubmit": "发送消息",
   "contactFormSubmitting": "发送中...",
+  "contactFormNetworkError": "网络连接失败，请检查网络后重试。",
   "contactFormSuccessTitle": "消息已发送",
   "contactFormSuccessDescription": "感谢您的来信。我已收到您的咨询，将尽快回复您。",
   "contactFormSuccessButton": "发送另一条消息",

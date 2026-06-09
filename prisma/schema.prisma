@@ -1,0 +1,21 @@
+// ── Porridge Website ── Prisma + MongoDB Schema ──
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Website {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  message   String
+  interests String[]
+  createdAt DateTime @default(now())
+
+  @@map("form")
+}

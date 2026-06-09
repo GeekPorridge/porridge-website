@@ -68,6 +68,7 @@ const Contact = async ({ params }: Props) => {
     },
     submit: t("contactFormSubmit"),
     submitting: t("contactFormSubmitting"),
+    networkError: t("contactFormNetworkError"),
     success: {
       title: t("contactFormSuccessTitle"),
       description: t("contactFormSuccessDescription"),
@@ -125,7 +126,8 @@ const Contact = async ({ params }: Props) => {
                 <div className="inline-flex items-center space-x-2.5 bg-brand-bone/35 border border-brand-bone px-3 py-1.5 rounded-full">
                   <Globe className="h-3.5 w-3.5 text-brand-accent" />
                   <span className="font-mono text-[10px] tracking-wider text-brand-dark/75">
-                    {t("contactTimezone")} <LiveClock />
+                    {t("contactTimezone")}
+                    <LiveClock />
                   </span>
                 </div>
               </div>
@@ -188,7 +190,7 @@ const Contact = async ({ params }: Props) => {
               {formData.description}
             </p>
           </div>
-          <ContactForm formData={formData} />
+          <ContactForm formData={formData} locale={locale} />
         </div>
       </section>
     </AnimatePresenceLayout>

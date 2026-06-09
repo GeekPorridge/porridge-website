@@ -14,6 +14,7 @@ type FormData = {
   message: { label: string; placeholder: string };
   submit: string;
   submitting: string;
+  networkError: string;
   success: {
     title: string;
     description: string;
@@ -28,7 +29,13 @@ type FieldErrors = {
   _form?: string;
 };
 
-const ContactForm = ({ formData }: { formData: FormData }) => {
+const ContactForm = ({
+  formData,
+  locale,
+}: {
+  formData: FormData;
+  locale: string;
+}) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
@@ -55,9 +62,12 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/form", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-Locale": locale, // ← pass current app locale to API
+        },
         body: JSON.stringify(formDataObj),
       });
 
@@ -74,7 +84,7 @@ const ContactForm = ({ formData }: { formData: FormData }) => {
       setIsSubmitted(true);
     } catch {
       setFieldErrors({
-        _form: "Network error. Please check your connection and try again.",
+        _form: formData.networkError,
       });
     } finally {
       setIsSubmitting(false);
