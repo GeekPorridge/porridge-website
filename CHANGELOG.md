@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/GeekPorridge/porridge-website/compare/v0.1.1...v0.1.2) (2026-06-09)
+
+
+### Bug Fixes
+
+* add postinstall hook to generate Prisma client on install ([159da15](https://github.com/GeekPorridge/porridge-website/commit/159da1589150350b0877f7ec8112e7ff96c9fd3b))
+
 ### 0.1.1 (2026-06-09)
 
 
