@@ -11,7 +11,11 @@
     "lint:fix": "biome check --write",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "release:first": "standard-version --first-release"
   },
   "dependencies": {
     "@prisma/client": "6.19.3",
@@ -37,6 +41,7 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "prisma": "6.19.3",
+    "standard-version": "^9.5.0",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.8"
