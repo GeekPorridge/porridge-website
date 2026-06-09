@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
+    "postinstall": "prisma generate",
     "lint:fix": "biome check --write",
     "test": "vitest run",
     "test:watch": "vitest",
