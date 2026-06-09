@@ -95,7 +95,6 @@ function createContactSchema(locale: Locale = "zh") {
     email: Joi.string()
       .email({ tlds: { allow: false } })
       .max(254)
-      .pattern(/^[a-zA-Z0-9._%+-]*[a-zA-Z][a-zA-Z0-9._%+-]*@/)
       .required()
       .messages({
         "string.email": isZh
