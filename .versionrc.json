@@ -1,0 +1,13 @@
+{
+  "types": [
+    { "type": "feat", "section": "Features" },
+    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "chore", "section": "Chores" },
+    { "type": "perf", "section": "Performance" },
+    { "type": "refactor", "section": "Refactoring" },
+    { "type": "style", "section": "Styles" },
+    { "type": "docs", "section": "Documentation" }
+  ],
+  "commitUrlFormat": "https://github.com/GeekPorridge/porridge-website/commit/{{hash}}",
+  "compareUrlFormat": "https://github.com/GeekPorridge/porridge-website/compare/{{previousTag}}...{{currentTag}}"
+}
