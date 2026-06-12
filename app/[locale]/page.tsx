@@ -2,7 +2,7 @@
 
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import AnimatePresenceLayout from "../components/animate-presence-layout";
 import HeroSubtitle from "../motions/hero-subtitle";

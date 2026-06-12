@@ -5,6 +5,10 @@ export const routing = defineRouting({
   locales: ["en", "zh"],
   defaultLocale: "en",
   localePrefix: "as-needed",
+  localeCookie: {
+    name: "NEXT_LOCALE",
+    maxAge: 31536000,
+  },
 });
 
 export const { Link, redirect, usePathname, useRouter } =
