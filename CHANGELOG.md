@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/GeekPorridge/porridge-website/compare/v0.1.2...v0.1.3) (2026-06-12)
+
+
+### Bug Fixes
+
+* add postinstall hook to auto-generate Prisma Client on Vercel build ([80bc787](https://github.com/GeekPorridge/porridge-website/commit/80bc787b9493bb0fcdc54a6776f2aa674c708ce5))
+* persist locale preference via cookie to prevent reset on navigation ([56fe225](https://github.com/GeekPorridge/porridge-website/commit/56fe225e5c494127f23a18e48455a7d9ee7af014))
+* resolve language-switcher causing stale [locale] segment on navigation ([c59298a](https://github.com/GeekPorridge/porridge-website/commit/c59298a7cb3e57a8d72bfc976ccd151aab995307))
+
 ### [0.1.2](https://github.com/GeekPorridge/porridge-website/compare/v0.1.1...v0.1.2) (2026-06-09)
 
 
