@@ -2,8 +2,8 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "../components/language-switcher";
 import ThemeToggle from "../components/theme-toggle";
 
