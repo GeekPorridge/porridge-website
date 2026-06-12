@@ -2,7 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../components/language-switcher";
 import ThemeToggle from "../components/theme-toggle";
