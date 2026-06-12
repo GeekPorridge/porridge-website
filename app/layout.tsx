@@ -1,3 +1,4 @@
+import { getLocale } from "next-intl/server";
 import { ebGaramond, hankenGrotesk, plusJakartaSans } from "./fonts";
 import "./globals.css";
 
@@ -12,14 +13,15 @@ const themeScript = `
   })();
 `;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${ebGaramond.variable} ${hankenGrotesk.variable} ${plusJakartaSans.variable} h-full antialiased`}
       suppressHydrationWarning
     >

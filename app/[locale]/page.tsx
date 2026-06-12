@@ -2,8 +2,8 @@
 
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 import AnimatePresenceLayout from "../components/animate-presence-layout";
 import HeroSubtitle from "../motions/hero-subtitle";
 import WaveText from "../motions/wave-text";
